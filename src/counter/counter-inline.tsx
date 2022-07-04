@@ -7,6 +7,7 @@ export function CounterInline(): JSX.Element {
     const [count, setCount] = useState(0);
     const componentName = 'Counter inline';
 
+    console.log('\n');
     useLogRender(componentName);
 
     // Here the callback for Button is specified "inline" which means that the value of onClick

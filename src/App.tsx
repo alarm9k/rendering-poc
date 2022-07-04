@@ -15,6 +15,10 @@ function App() {
                 </p>
 
                 <p>
+                    Also note how DummyRegular is re-rendered each time the CounterMemoized is re-rendered, but DummyPure is not.
+                </p>
+
+                <p>
                     This might not have a noticeable effect on smaller apps but may have significant impact on a larger app's performance.
                 </p>
             </div>
