@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {CounterInline} from "./counter/counter-inline";
+import {CounterMemoized} from "./counter/counter-memoized";
+import {useLogRender} from "./helpers";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    useLogRender('Main app');
+
+    return (
+        <div className="App">
+            <div style={{marginBottom: '1em', maxWidth: 500}}>
+                <p>
+                    All renders are logged to the console. Clicking on <b>button One</b> will trigger re-render of its parent counter component. However, clicking on <b>button Two</b> will only trigger re-render of the parent, but not the button component.
+                </p>
+
+                <p>
+                    This might not have a noticeable effect on smaller apps but may have significant impact on a larger app's performance.
+                </p>
+            </div>
+
+            <CounterInline/>
+            <CounterMemoized/>
+        </div>
+    );
 }
 
 export default App;
